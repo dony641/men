@@ -14,10 +14,12 @@
     <ClCompile Include="Boy.cpp" />
     <ClCompile Include="Girl.cpp" />
     <ClCompile Include="Mian.cpp" />
+    <ClCompile Include="Single.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boy.h" />
     <ClInclude Include="Girl.h" />
+    <ClInclude Include="Single.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E94C59B9-DBCB-4798-B8F3-1593821360A7}</ProjectGuid>

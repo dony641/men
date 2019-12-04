@@ -6,8 +6,6 @@
 #define BOY_AGE 22
 #define YANZHI  80
 
-
-
 //Girl::Girl()
 //{
 //	age = 0;
@@ -15,29 +13,23 @@
 //	yanzhi = 0;
 //}
 
-Girl::Girl(int age, string name, int yanzhi){
 
-	this->age = age;
-	this->name = name;
+Girl::Girl(int age, string name, int yanzhi):Single(age,name){
+
+	/*this->age = age;
+	this->name = name;*/
 	this->yanzhi = yanzhi;
 }
 
-
 Girl::~Girl()
+
 {
 
 }
-int Girl::getAge()const{
 
-	return age;
-}
-
-string Girl::getName()const{
-	return name;
-}
 
 bool Girl::Satisfied(const Boy &boy)const{
-	if (boy.getSalary()> YANZHI && age < BOY_AGE) {
+	if (boy.getSalary() >= yanzhi * YANZHI){
 		return true;
 	}
 	else {
@@ -50,7 +42,7 @@ int Girl::getYanzhi()const{
 }
 string Girl::description()const{
 	stringstream ret;
-	ret << "年龄" << "名字" << name << age << "颜值" << yanzhi << endl;
+	ret << "年龄" << getAge()<<"名字"<<getName()<< "颜值" << yanzhi << endl;
 	return ret.str();
 }
 
@@ -59,8 +51,6 @@ void Girl::inputGirls(vector<Girl> &girls){
 	int age;
 	string name;
 	int yanzhi;
-
-
 	int index = 1;
 		while (1) {
 			cout << "请输入第几个" << index << "位小姐姐的年龄[输入0结束]";
@@ -77,5 +67,4 @@ void Girl::inputGirls(vector<Girl> &girls){
 			index++;
 
 		}
-
 }

@@ -12,9 +12,9 @@ Boy::Boy()
 	name = "";
 	salary = 0;
 }
-Boy::Boy(int age, string name, int salary) {
-	this->age = age;
-	this->name = name;
+Boy::Boy(int age, string name, int salary):Single(age,name){
+	/*this->age = age;
+	this->name = name;*/
 	this->salary = salary;
 }
 
@@ -23,22 +23,26 @@ Boy::~Boy()
 {
 }
 
-int Boy::getAge() const
-{
-	return age;
-}
-
-string Boy::getName() const
-{
-	return name;
-}
+//int Boy::getAge() const
+//{
+//	return age;
+//}
+//
+//string Boy::getName() const
+//{
+//	return name;
+//}
 
 int Boy::getSalary()const
 {
 	return salary;
 }
 bool Boy::satisfied(const Girl& girl)const{
-	if (girl.getYanzhi() >= salary * SALARY_FACTOR) {
+	int yanzhi = salary * SALARY_FACTOR;
+	if (yanzhi > 100) {
+		yanzhi = 100;
+	}
+	if (girl.getYanzhi() >=yanzhi) {
 		return true;
 	}else{
 		return false;
@@ -49,7 +53,7 @@ bool Boy::satisfied(const Girl& girl)const{
 string Boy::description() const
 {
 	stringstream ret;
-	ret << "年龄" << age << "姓名" << name << "薪资" << salary << endl;
+	ret << "年龄" << getAge()<< "姓名" << getName()<< "薪资" << salary << endl;
 	return ret.str();
 }
 
